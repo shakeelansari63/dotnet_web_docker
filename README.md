@@ -6,11 +6,15 @@ Docker
 Docker Compose
 ```
 
-### How to use
+## How to use
+### Configure
 #### Create a directory `api` and place the dotnet binaries in that directory
 #### Cretae a directory `web` and place the static web files in that directory
 #### Update the name of Dotnet DLL to run in `config` file
-#### Run `docker compose --env-file ./config up -d`
+#### Update host ports in `config` file
+
+### Start
+#### Run `./start`
   
-### To Stop
-#### Run `docker compose down`
+### Stop
+#### Run `./stop`
