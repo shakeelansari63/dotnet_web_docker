@@ -1,5 +1,5 @@
 FROM httpd:alpine
-RUN apk add wget bash gcc icu-libs openssl1.1-compat openrc
+RUN apk add wget bash gcc icu-libs openssl1.1-compat
 
 # Install Dotnet
 RUN wget https://dot.net/v1/dotnet-install.sh
@@ -9,4 +9,4 @@ RUN chmod -R a+rx /usr
 
 # Copy Http Configs
 COPY docker-files/httpd.conf /usr/local/apache2/conf/httpd.conf
-
+COPY docker-files/httpd-vhosts.conf /usr/local/apache2/conf/extra/httpd-vhosts.conf
