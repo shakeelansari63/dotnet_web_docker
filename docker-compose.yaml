@@ -5,14 +5,14 @@ services:
       - /bin/bash
       - -c
       - |
-        echo Running /api/${DOTNET_DLL}
-        cd /api && /usr/dotnet/dotnet /api/${DOTNET_DLL} &
+        echo Running /api/\${DOTNET_DLL}
+        cd /api && /usr/dotnet/dotnet /api/\${DOTNET_DLL} &
         httpd-foreground
     volumes: 
       - ./api:/api
       - ./web:/usr/local/apache2/htdocs
     ports:
-      - 8081:80
-      - 8082:8080
+      - 8081:80      # Port for Static Web Interface, Container port is 80 
+      - 8082:8080    # Port for Dotnet API Interface, Container port is 80
     environment:
       - DOTNET_DLL=HOST.API.dll
